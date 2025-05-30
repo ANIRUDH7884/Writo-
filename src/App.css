@@ -1,0 +1,221 @@
+/* App.css */
+
+/* Base colors for dark and light */
+:root {
+  --color-bg-dark: #121524;    /* Dark blue-black */
+  --color-bg-light: #f9f9f9;   /* Light mode background */
+  --color-text-dark: #e0e0e0;  /* Light text on dark */
+  --color-text-light: #222;    /* Dark text on light */
+  --color-primary: #3f51b5;    /* Primary accent */
+  --color-primary-hover: #2c387e;
+  --color-muted: #888;
+}
+
+/* Default dark mode styling */
+body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode overrides */
+body.light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #444;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light .navbar {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+  border-bottom: 1px solid #ccc;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.toggle-switch {
+  cursor: pointer;
+  user-select: none;
+  font-size: 1rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.toggle-switch:hover {
+  background-color: var(--color-primary-hover);
+  color: #fff;
+}
+
+/* TaskList container styling */
+ul.list-group {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0;
+  list-style-type: none;
+  border-radius: 10px;
+  background-color: rgba(255 255 255 / 0.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  transition: background-color 0.3s ease;
+}
+
+body.light ul.list-group {
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* TaskForm styling */
+form.mb-3 {
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form.mb-3 input.form-control {
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  border: 1.5px solid #555;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  font-size: 1rem;
+  flex: 1;
+}
+
+body.light form.mb-3 input.form-control {
+  background-color: #fff;
+  border-color: #ddd;
+  color: #222;
+}
+
+form.mb-3 input.form-control:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 5px var(--color-primary);
+}
+
+/* Buttons */
+form.mb-3 button.btn {
+  padding: 0.55rem 1.3rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+form.mb-3 button.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+form.mb-3 button.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+form.mb-3 button.btn-secondary {
+  background-color: #555;
+  color: #eee;
+}
+
+form.mb-3 button.btn-secondary:hover {
+  background-color: #444;
+}
+
+/* TaskItem */
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.2rem;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255 255 255 / 0.1);
+  color: var(--color-text-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: default;
+}
+
+body.light .list-group-item {
+  border-color: #eee;
+  color: #222;
+}
+
+.list-group-item.list-group-item-success {
+  background-color: rgba(56, 142, 60, 0.4);
+  text-decoration: line-through;
+  color: #a5d6a7;
+}
+
+.list-group-item strong {
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.list-group-item small.text-muted {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-left: 0.5rem;
+}
+
+/* TaskItem buttons */
+.list-group-item button {
+  border: 1.5px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.list-group-item button:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+  form.mb-3 {
+    flex-direction: column;
+  }
+  
+  form.mb-3 input.form-control,
+  form.mb-3 button.btn {
+    width: 100%;
+  }
+
+  .list-group-item button {
+    margin-left: 0;
+    margin-top: 0.3rem;
+  }
+
+  .list-group-item div > div {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
